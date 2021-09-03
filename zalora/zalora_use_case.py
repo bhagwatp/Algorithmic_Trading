@@ -81,7 +81,8 @@ moving_avg = df.groupby(['dates']).mean()
 
 # ### Simple moving average (SMA)
 
-# A moving average, also called as rolling average or running average is a used to analyze the time-series data by calculating a series of averages of the different subsets of full dataset.
+# A moving average, also called as rolling average or running average is a used to analyze the time-series data by calculating a series
+# of averages of the different subsets of full dataset.
 # 
 # The simple moving average = (sum of the an asset price over the past n periods) / (number of periods)
 
@@ -92,7 +93,8 @@ moving_avg['50_SMA'] = moving_avg['Weighted_Price'].rolling(window=50, min_perio
 moving_avg['100_SMA'] = moving_avg['Weighted_Price'].rolling(window=100, min_periods=1).mean()
 
 
-# In our existing pandas dataframe, created a new column ‘Signal’ such that if 50-day SMA is greater than 100-day SMA then set Signal value as 1 else when 100-day SMA is greater than 50-day SMA then set it’s value as 0.
+# In our existing pandas dataframe, created a new column ‘Signal’ such that if 50-day SMA is greater than 100-day SMA then set Signal 
+# value as 1 else when 100-day SMA is greater than 50-day SMA then set it’s value as 0.
 
 # In[ ]:
 
@@ -101,7 +103,8 @@ moving_avg['signal'] = 0.0
 moving_avg['signal'] = np.where(moving_avg['50_SMA'] > moving_avg['100_SMA'], 1.0, 0.0)
 
 
-# From these ‘Signal’ values, the position orders can be generated to represent trading signals. Crossover happens when the faster moving average and the slower moving average cross
+# From these ‘Signal’ values, the position orders can be generated to represent trading signals. Crossover happens when the faster
+# moving average and the slower moving average cross
 
 # In[ ]:
 
